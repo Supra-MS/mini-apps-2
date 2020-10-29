@@ -11,7 +11,7 @@ const EventsList = ({ events, eventsCount }) => {
                 return (
                     <div key={uniqid()}>
                         <li className="card"> 
-                            <h5 className="card-header">Place: {evnt.category2} </h5>
+                            <h6 className="card-header">Place: {evnt.category2} </h6>
                             <div className="card-body">
                                 <div className="card-title">{createdAt}</div>
                                 <span className="card-text">{evnt.description}</span>
