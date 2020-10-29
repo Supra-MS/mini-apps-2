@@ -1,0 +1,108 @@
+body {
+    font-family: 'MedievalSharp', cursive;
+    letter-spacing: 0.09em;
+    color: rgb(48, 48, 48);
+    background-color: rgb(253, 247, 247);
+}
+
+.header {
+    background: linear-gradient( rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.3) ), url(https://images.unsplash.com/photo-1507842217343-583bb7270b66?ixlib=rb-1.2.1);
+    margin: 0px;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    opacity: 0.9;
+}
+
+.header-title {
+    font-weight: bolder;
+    font-size: 2em;
+    color: #ffffff;
+}
+
+.form-control {
+    max-width: 30%;
+}
+
+.btn-outline-secondary {
+    background-color: rgb(13, 122, 3);
+    color: white;
+}
+
+.btn-outline-secondary:hover {
+    background-color: rgb(83, 95, 82);
+    outline: none;
+    cursor: pointer;
+}
+
+.card {
+    margin: 40px auto;
+    width: 55%;
+    list-style: none;
+    border: 1px solid #77777769;
+    background-color: #fdfdfd;
+    border-radius: 4px;
+    padding: 30px 50px 0px 50px;
+    box-shadow: 1px 1px 1em #80808066;
+}
+
+.card-header {
+    background-color: rgb(246, 255, 235);
+}
+
+.card-title {
+    color: rgb(100, 98, 98);
+    background-color: rgb(253, 247, 247);
+    padding: 3px;
+    width: 30%;
+}
+
+.btn-primary {
+    width: 10%;
+    margin: 10px 0px;
+    display: block;
+    padding: 2px;
+    background-color: orange;
+    border: none;
+}
+
+.btn-primary:hover {
+    background-color: rgb(252, 184, 57);
+}
+
+.evnt-txt {
+    text-align: center;
+}
+
+.pagination {
+    margin: 30px;
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    cursor: pointer;
+    color: white;
+}
+
+.pagination a {
+    padding: 10px;
+    margin: 7px;
+    border-radius: 10px;
+    color: white;
+    background-color: #45362e;
+    cursor: pointer;
+}
+
+.pagination a:hover {
+    background-color: rgb(108, 136, 105);
+    cursor: pointer;
+}
+
+.active a {
+    color: white;
+    background-color: rgb(13, 122, 3);
+}
+  
