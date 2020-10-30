@@ -1,0 +1,12 @@
+#app {
+  margin: auto;
+  max-height: 350px;
+  max-width: 1200px;
+  color: rgb(58, 58, 58);
+}
+
+.disclaimer {
+  margin-top: 50px;
+  font-size: 18px;
+  text-align: center;
+}
