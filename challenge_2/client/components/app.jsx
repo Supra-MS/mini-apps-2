@@ -2,14 +2,17 @@ import React, { Component } from 'react';
 import http from 'axios';
 import Chart from './Chart.jsx';
 import Disclaimer from './Disclaimer.jsx';
+import ChartType from './ChartType.jsx';
 
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      bpiData: {}
+      bpiData: {},
+      chartType: 'Week'
     };
     this.getAllData = this.getAllData.bind(this);
+    this.handleOnChange = this.handleOnChange.bind(this);
   }
 
   componentDidMount() {
@@ -28,11 +31,26 @@ class App extends Component {
       .catch(err => console.err('Error getting response from the server'))
   }
 
+  handleOnChange(e) {
+    const name = e.target.name;
+    const value = e.target.value;
+    this.setState({
+      [name]: value
+    });
+  }
+
   render() {
-    const { bpiData } = this.state;
+    const { bpiData, chartType } = this.state;
     return (
       <React.Fragment>
-        <Chart bpiData={bpiData} />
+        <Chart
+          bpiData={bpiData}
+          chartType={chartType}
+          />
+        <ChartType
+          chartType={chartType}
+          handleOnChange={this.handleOnChange}
+          />
         <Disclaimer />
       </React.Fragment>
     );

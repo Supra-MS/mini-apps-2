@@ -12,7 +12,7 @@ const endDate = moment().format('YYYY-MM-DD');
 const bpiEndpoint = 'https://api.coindesk.com/v1/bpi/historical/close.json';
 
 app.get('/bpi', (req, res) => {
-  http.get(`${bpiEndpoint}?start=2020-01-01&end=${endDate}`)
+  http.get(`${bpiEndpoint}?start=2020-08-01&end=${endDate}`)
     .then(response => {
       res.status(200).send(response.data);
     })
