@@ -20,7 +20,7 @@ class App extends Component {
     http.get('/bpi')
       .then(response => {
         const { bpi } = response.data;
-        console.log('Successfully able to get the response', response.data, typeof (bpi));
+        console.log('Successfully able to get the response', response.data);
         this.setState({
           bpiData: bpi
         });
