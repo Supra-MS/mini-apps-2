@@ -1,20 +1,15 @@
 import React from 'react';
 import { Line } from 'react-chartjs-2';
+import moment from 'moment';
+import "chartjs-plugin-lineheight-annotation";
 
-const Chart = ({ bpiData, chartType }) => {
-  let chartArr = [];
+const Chart = ({ chartArr, chartType }) => {
   let chartData;
   let smCT = chartType.toLowerCase();
   if (chartType === 'Day') {
     chartType = 'Dai';
   }
-  if (bpiData) {
-    for (let key in bpiData) {
-      chartArr.push({
-        x: key,
-        y: bpiData[key]
-      });
-    }
+  if (chartArr) {
     chartData = {
       datasets: [
         {
@@ -32,10 +27,12 @@ const Chart = ({ bpiData, chartType }) => {
     <Line
       data={chartData}
       options={{
-        title:{
-          display: true,
-          text: '2020 [Aug-Oct] Bitcoin Price Index (USD)',
-          fontSize: 20
+        responsive: true,
+        lineHeightAnnotation: {
+          always: false,
+          hover: true,
+          color: '#f6595f',
+          lineWeight: 1.5,
         },
         legend:{
           display: true,
@@ -50,6 +47,13 @@ const Chart = ({ bpiData, chartType }) => {
             type: 'time',
             time: {
                 unit: `${smCT}`
+            }
+          }],
+          yAxes: [{
+            ticks: {
+              callback: function (value) {
+                return `$${value}`;
+              }
             }
           }]
         }
