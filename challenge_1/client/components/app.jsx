@@ -17,7 +17,8 @@ class App extends React.Component {
       pageCounter: 3,
       perPage: 10,
       currentPage: 1,
-      searchTerm: ''
+      searchTerm: '',
+      totalCount: 0
     }
     this.getEvents = this.getEvents.bind(this);
     this.handlePageChange = this.handlePageChange.bind(this);
@@ -33,16 +34,16 @@ class App extends React.Component {
     http.get(`${server}/events?q=${searchTerm}&_page=${currentPage}&_limit=${perPage}`)
       .then(response => {
         const events = response.data;
-        const pageCount = response.headers['x-total-count'] / perPage;
-        return {
-          events, pageCount
-        }
+        const totalCount = response.headers['x-total-count'];
+        const pageCount = totalCount / perPage;
+        return { events, pageCount, totalCount }
       })
-      .then(({ events, pageCount }) => {
+      .then(({ events, pageCount, totalCount }) => {
         console.log('Successfully able to get a response from the json-server', events);
-        this.setState({ 
-          events, 
-          pageCounter: pageCount 
+        this.setState({
+          events,
+          pageCounter: pageCount,
+          totalCount
         }, () => {
           console.log('Current page: ', currentPage);
         });
@@ -71,14 +72,14 @@ class App extends React.Component {
   }
 
   render() {
-    const { searchTerm, pageCounter, currentPage, events: allEvents } = this.state;
+    const { searchTerm, pageCounter, currentPage, events: allEvents, totalCount } = this.state;
     const { length: count } = this.state.events;
     /* const events = paginate(allEvents, currentPage, pageSize); */
 
     return (
       <React.Fragment>
         <Header />
-        <Search 
+        <Search
           searchTerm={searchTerm}
           handleInputChange={this.handleInputChange}
           handleSubmit={this.getEvents}
@@ -91,6 +92,7 @@ class App extends React.Component {
         <EventsList
           eventsCount={count}
           events={allEvents}
+          totalCount={totalCount}
           />
       </React.Fragment>
     )
@@ -100,11 +102,11 @@ class App extends React.Component {
 
 export default App;
 
-/* 
+/*
 <Pagination
-  eventsCount={count} 
-  pageCounter={pageCounter} 
-  currentPage={currentPage} 
-  onPageChange={this.handlePageChange} 
+  eventsCount={count}
+  pageCounter={pageCounter}
+  currentPage={currentPage}
+  onPageChange={this.handlePageChange}
   />
 */
