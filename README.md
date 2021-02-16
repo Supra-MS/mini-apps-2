@@ -1,5 +1,5 @@
 # mini-apps-2
-This is a project I completed as a student at [hackreactor](http://hackreactor.com). This project was worked on with a pair.
+This is a project I completed as a student at [hackreactor](http://hackreactor.com). This project was worked as solo.
 
 ### Challenge 1 - Historical Events Finder
 ![2021-02-15_23-29-03 (1)](https://user-images.githubusercontent.com/61848395/108031571-f09dcf00-6fe5-11eb-9cae-2bb1d3d8f5d2.gif)
