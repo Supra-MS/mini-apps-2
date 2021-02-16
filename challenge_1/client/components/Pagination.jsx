@@ -21,7 +21,7 @@ const Pagination = ({ pageCounter, handlePageChange, currentPage }) => {
 
 export default Pagination;
 
-/* 
+/*
 import _ from "lodash"; // underscore
 
 const Pagination = ({ itemsCount, pageSize, onPageChange, currentPage }) => {
@@ -42,7 +42,7 @@ const Pagination = ({ itemsCount, pageSize, onPageChange, currentPage }) => {
                             </li>
                         )
                     })}
-                    
+
                 </ul>
             </nav>
         </>
