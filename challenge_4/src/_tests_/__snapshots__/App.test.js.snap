@@ -1,0 +1,37 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Minesweeper Game Tests: Check the winner status by changing the state and passing through dispatch() 1`] = `
+<div
+  className="container"
+>
+  <div
+    className="game-status"
+  >
+    <button
+      className="time-counter"
+    >
+      ⏱ 
+      undefined
+       
+    </button>
+    <button
+      className="reset"
+    >
+       
+      😎
+       
+    </button>
+    <button
+      className="mine-counter"
+    >
+      💣 
+       
+    </button>
+  </div>
+  <div
+    className="win-status won false"
+  >
+    🥳 CONGRATS! YOU WON 🥳
+  </div>
+</div>
+`;
