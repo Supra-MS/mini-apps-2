@@ -30,12 +30,7 @@ class App extends Component {
       .then(response => {
         const { bpi } = response.data;
         console.log('Successfully able to get the response', response.data);
-        this.setState({
-          bpiData: bpi,
-          data: response.data
-        }, () => {
-          console.log(this.state.data)
-        });
+        this.setState({ bpiData: bpi });
       })
       .then(() => {
         let chartArr = [];
@@ -46,9 +41,7 @@ class App extends Component {
             y: bpiData[key]
           });
         }
-        this.setState({
-          chartArr: chartArr
-        });
+        this.setState({ chartArr: chartArr });
       })
       .then(() => {
         http.get('/cp')
@@ -59,7 +52,6 @@ class App extends Component {
             const change = price - chartArr[0].y;
             const changeP = (price - chartArr[0].y) / chartArr[0].y * 100;
 
-            console.log(response, "000", price, change, changeP, chartArr)
             this.setState({
               currentPrice: rate_float,
               changeUSD: change.toLocaleString('us-EN',{ style: 'currency', currency: 'USD' }),
@@ -74,9 +66,7 @@ class App extends Component {
   handleOnChange(e) {
     const name = e.target.name;
     const value = e.target.value;
-    this.setState({
-      [name]: value
-    });
+    this.setState({ [name]: value });
   }
 
   render() {
